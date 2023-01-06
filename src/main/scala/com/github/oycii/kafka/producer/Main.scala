@@ -44,7 +44,7 @@ object Main extends LazyLogging  {
         val list = it.next()
         println("list: " + list)
         println("size: " + list.size)
-        val book = getBook(it.next())
+        val book = getBook(list)
         val json = book.asJson
         println(json)
         producer.send(new ProducerRecord(topic, book.hashCode.toString, json.toString()))
